@@ -19,12 +19,12 @@ $post_data = [[
     "p" => "/v2/projects/yYo1XPl1/charts",
     "s" => "bb9aa471-3bc9-455b-b3a1-eeb9e0e9a0e3",
     "u" => "7328beea-ee89-43a0-86cb-48879e90a67d",
-    "ai" => "0a1b4118dd954ec3bcc69da5138bdb96",
+    "ai" => "${ai}",
     "t" => "cstm",
     "d" => "gta.growingio.com",
     "n" => "create_chart",
     "e" => [
-        "account_id" => "0a1b4118dd954ec3bcc69da5138bdb96",
+        "account_id" => "${ai}",
         "chart_dimension_count" => 12,
         "chart_id" => 9999,
         "chart_metric_count" => 1,
@@ -37,10 +37,10 @@ $json_data = json_encode($post_data);
 printf($json_data);
 $compress_data = snappy_compress($json_data); // need to compress data !
 $headers = array(
-    'X-Client-Id:7f8it37dxdt91x4n5cvuvccc1cgaqe22',
+    'X-Client-Id:${client id}',
     'Content-Type:application/json',
 );
-$url = "https://api.growingio.com/custom/0a1b4118dd954ec3bcc69da5138bdb96/events";
+$url = "https://api.growingio.com/custom/${ai}/events";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
